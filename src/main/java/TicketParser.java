@@ -45,6 +45,10 @@ class TicketParser {
      * @return new instance of this class.
      */
     static TicketParser of(Path filePath) {
+        if (!filePath.toFile().exists()){
+            System.out.println("File does not exist!");
+            System.exit(1);
+        }
         return new TicketParser(filePath);
     }
 
