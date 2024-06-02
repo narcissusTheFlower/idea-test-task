@@ -89,7 +89,7 @@ class TicketParser {
         //For readability only. Variable could be removed
         double priceDifference = priceAverage - priceMedian;
 
-        result = Result.from(calculateMinimalPriceForEachCarrier(parsedTickets),
+        result = Result.from(calculateMinimalTimeForEachCarrier(parsedTickets),
             priceAverage,
             priceMedian,
             priceDifference);
@@ -135,7 +135,7 @@ class TicketParser {
      * @param parsedTickets
      * @return minimal flight time for each distinct carrier
      */
-    private Map<String, String> calculateMinimalPriceForEachCarrier(Collection<OneTicketDTO> parsedTickets) {
+    private Map<String, String> calculateMinimalTimeForEachCarrier(Collection<OneTicketDTO> parsedTickets) {
         HashSet<AbstractMap.SimpleEntry<String, Collection<Long>>> temp = new HashSet<>();
 
         parsedTickets.forEach(ticket -> temp.add(new AbstractMap.SimpleEntry<>(ticket.getCarrier(), new ArrayList<Long>())));
